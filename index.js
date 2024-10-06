@@ -94,8 +94,46 @@ function addDiceRollButton() {
     });
 }
 
+function registerFunctionTools() {
+    try {
+        const { registerFunctionTool } = getContext();
+        if (!registerFunctionTool) {
+            console.debug('Dice: function tools are not supported');
+        }
+
+        const rollDiceSchema = Object.freeze({
+            $schema: 'http://json-schema.org/draft-04/schema#',
+            type: 'object',
+            properties: {
+                formula: {
+                    type: 'string',
+                    description: 'A dice formula to roll, e.g. 2d6',
+                },
+            },
+            required: [
+                'formula',
+            ],
+        });
+
+        registerFunctionTool({
+            name: 'RollTheDice',
+            displayName: 'Dice Roll',
+            description: 'Rolls the dice using the provided formula and returns the numeric result. Use when it is necessary to roll the dice to determine the outcome of an action or when the user requests it.',
+            parameters: rollDiceSchema,
+            action: async (args) => {
+                if (!args?.formula) args = { formula: '1d6' };
+                return doDiceRoll(args.formula, true);
+            },
+            formatMessage: () => '',
+        });
+    } catch (error) {
+        console.error('Dice: Error registering function tools', error);
+    }
+}
+
 jQuery(function () {
     addDiceRollButton();
+    registerFunctionTools();
     SlashCommandParser.addCommandObject(SlashCommand.fromProps({
         name: 'roll',
         aliases: ['r'],
