@@ -99,6 +99,7 @@ function registerFunctionTools() {
         const { registerFunctionTool } = getContext();
         if (!registerFunctionTool) {
             console.debug('Dice: function tools are not supported');
+            return;
         }
 
         const rollDiceSchema = Object.freeze({
