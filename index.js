@@ -106,12 +106,17 @@ function registerFunctionTools() {
             $schema: 'http://json-schema.org/draft-04/schema#',
             type: 'object',
             properties: {
+                who: {
+                    type: 'string',
+                    description: 'The name of the persona rolling the dice',
+                },
                 formula: {
                     type: 'string',
                     description: 'A dice formula to roll, e.g. 2d6',
                 },
             },
             required: [
+                'who',
                 'formula',
             ],
         });
@@ -123,7 +128,9 @@ function registerFunctionTools() {
             parameters: rollDiceSchema,
             action: async (args) => {
                 if (!args?.formula) args = { formula: '1d6' };
-                return doDiceRoll(args.formula, true);
+                const roll = await doDiceRoll(args.formula, true);
+                const result = args.who ? `${args.who} rolls a ${args.formula}. The result is: ${roll}` : `The result or a ${args.formula} roll is: ${roll}`;
+                return result;
             },
             formatMessage: () => '',
         });
