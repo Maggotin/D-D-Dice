@@ -365,7 +365,7 @@ function registerFunctionTools() {
                 },
                 formula: {
                     type: 'string',
-                    description: 'A dice formula to roll, e.g. 2d6, 4d6k3 (keep highest 3), 1d20r<2 (reroll 1s), 3d6! (exploding 6s)',
+                    description: 'A dice formula to roll, e.g. 2d6',
                 },
             },
             required: [
@@ -377,28 +377,13 @@ function registerFunctionTools() {
         registerFunctionTool({
             name: 'RollTheDice',
             displayName: 'Dice Roll',
-            description: 'Rolls dice using the provided formula and returns the result. Supports advanced notation like keeping highest/lowest (4d6k3), rerolling (1d20r<2), and exploding dice (3d6!). Use when determining random outcomes or when the user requests a dice roll.',
+            description: 'Rolls the dice using the provided formula and returns the numeric result. Use when it is necessary to roll the dice to determine the outcome of an action or when the user requests it.',
             parameters: rollDiceSchema,
             action: async (args) => {
                 if (!args?.formula) args = { formula: '1d6' };
                 const roll = await doDiceRoll(args.formula, true);
-                
-                // Get the full roll result for more detailed output
-                const result = droll.roll(args.formula);
-                
-                let rollDescription = '';
-                if (args.who) {
-                    rollDescription = `${args.who} rolls ${args.formula}. `;
-                }
-                
-                // Check if it's a complex roll
-                const hasModifiers = /[kdr!<>]/i.test(args.formula);
-                
-                if (hasModifiers) {
-                    return `${rollDescription}Result: ${result.total} [${result.rolls}]`;
-                } else {
-                    return `${rollDescription}The result is: ${result.total} (${result.rolls})`;
-                }
+                const result = args.who ? `${args.who} rolls a ${args.formula}. The result is: ${roll}` : `The result or a ${args.formula} roll is: ${roll}`;
+                return result;
             },
             formatMessage: () => '',
         });
