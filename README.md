@@ -123,6 +123,7 @@ You can combine these modifiers:
 2d20r<2kh1     # Roll 2d20, reroll 1s, keep highest (super advantage)
 3d6!+1d8       # Roll 3d6 with explosions, plus 1d8
 ```
+Credits: Based on the original extension Extension-Dice by Cohee#1207
 
 ## License
 
