@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../SillyTavern-MessageInteractivity"
+		},
+		{
+			"path": "../../SillyTavern-MessageActions"
+		}
+	],
+	"settings": {}
+}

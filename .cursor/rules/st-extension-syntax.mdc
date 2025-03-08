@@ -1,7 +1,6 @@
 ---
 description: SillyTavern extension API syntax reference with focus on getContext()
 globs: 
-alwaysApply: false
 ---
 
 # SillyTavern Extension API Syntax

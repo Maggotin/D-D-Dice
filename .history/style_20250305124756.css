@@ -1,0 +1,4 @@
+#dice_dropdown {
+    z-index: 30000;
+    backdrop-filter: blur(--SmartThemeBlurStrength);
+}

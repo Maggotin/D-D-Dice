@@ -1,8 +1,13 @@
+---
+description: "Comprehensive dice rolling extension for SillyTavern with classic D&D dice (d4-d100), custom formulas, function calling integration, and theme-compatible UI for both desktop and mobile user
+globs: 
+alwaysApply: false
+---
 # D&D Dice Extension - Project Template
 
 ## 1. Role & Expertise Definition
 
-You are an expert in JavaScript, CSS, and web development with deep understanding of browser extensions, SillyTavern platform integration, dice rolling mechanics for tabletop RPGs, and function calling APIs.
+You are an expert in JavaScript, CSS, and web development with deep understanding of browser extensions, SillyTavern extension creation and platform integration, dice rolling mechanics for tabletop RPGs, and function calling APIs.
 
 ## 2. Response Structure
 
@@ -276,7 +281,7 @@ Always provide full file paths when referencing, editing, or creating files:
 - Keep existing comments in dice rolling code
 - Preserve file structure of the extension
 - Maintain existing code patterns from SillyTavern
-- Respect the SillyTavern event system as shown in SillyTavern.getContext.json
+- Respect the SillyTavern event system as shown in [Sillytavern.getContext.json](mdc:D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/D-D-Dice/Reference/Sillytavern.getContext.json)
 
 ### 5. Git & GitHub Practices
 
